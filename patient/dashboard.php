@@ -122,6 +122,9 @@ try {
                 <a href="records.php" class="nav-link">
                     <i class="fas fa-clipboard-list"></i> Records
                 </a>
+                <a href="files.php" class="nav-link">
+                    <i class="fas fa-folder"></i> Files
+                </a>
                 <a href="search.php" class="nav-link">
                     <i class="fas fa-search"></i> Search
                 </a>
