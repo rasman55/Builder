@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goba Hospital - Patient Record Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hospital"></i>
+                <span>Goba Hospital</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Welcome to Goba Hospital</h1>
+                <p>Advanced Patient Record Management System</p>
+                <p class="hero-description">
+                    Secure, efficient, and comprehensive medical record management 
+                    for patients, doctors, and medical staff.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portals" class="btn btn-primary">Access Portals</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portal Access Section -->
+    <section id="portals" class="portals">
+        <div class="container">
+            <h2>Access Your Portal</h2>
+            <p class="section-subtitle">Choose your role to access the appropriate portal</p>
+            
+            <div class="portal-grid">
+                <!-- Patient Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">
+                        <i class="fas fa-user-injured"></i>
+                    </div>
+                    <h3>Patient Portal</h3>
+                    <p>View your medical records, search consultation history, and manage your profile</p>
+                    <ul class="portal-features">
+                        <li><i class="fas fa-check"></i> View Medical History</li>
+                        <li><i class="fas fa-check"></i> Search Records</li>
+                        <li><i class="fas fa-check"></i> Update Profile</li>
+                        <li><i class="fas fa-check"></i> Payment Processing</li>
+                    </ul>
+                    <a href="patient/login.php" class="btn btn-portal">Access Portal</a>
+                </div>
+
+                <!-- Doctor Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Doctor Portal</h3>
+                    <p>Manage patient records, add consultation notes, and access medical histories</p>
+                    <ul class="portal-features">
+                        <li><i class="fas fa-check"></i> Patient Records</li>
+                        <li><i class="fas fa-check"></i> Add Consultations</li>
+                        <li><i class="fas fa-check"></i> Surgery Records</li>
+                        <li><i class="fas fa-check"></i> Diagnosis Management</li>
+                    </ul>
+                    <a href="doctor/login.php" class="btn btn-portal">Access Portal</a>
+                </div>
+
+                <!-- Staff Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <h3>Medical Staff Portal</h3>
+                    <p>Record medicine dosages, update patient information, and manage medical data</p>
+                    <ul class="portal-features">
+                        <li><i class="fas fa-check"></i> Medicine Dosage</li>
+                        <li><i class="fas fa-check"></i> Patient Updates</li>
+                        <li><i class="fas fa-check"></i> Medical Records</li>
+                        <li><i class="fas fa-check"></i> Staff Profile</li>
+                    </ul>
+                    <a href="staff/login.php" class="btn btn-portal">Access Portal</a>
+                </div>
+
+                <!-- Admin Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Admin Portal</h3>
+                    <p>Manage users, register new doctors and staff, and oversee system operations</p>
+                    <ul class="portal-features">
+                        <li><i class="fas fa-check"></i> User Management</li>
+                        <li><i class="fas fa-check"></i> Register Users</li>
+                        <li><i class="fas fa-check"></i> Delete Records</li>
+                        <li><i class="fas fa-check"></i> System Oversight</li>
+                    </ul>
+                    <a href="admin/login.php" class="btn btn-portal">Access Portal</a>
+                </div>
+
+                <!-- External Health Office Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>External Health Office</h3>
+                    <p>Upload patient information and send referrals to other hospitals</p>
+                    <ul class="portal-features">
+                        <li><i class="fas fa-check"></i> Upload Patient Info</li>
+                        <li><i class="fas fa-check"></i> File Management</li>
+                        <li><i class="fas fa-check"></i> Hospital Referrals</li>
+                        <li><i class="fas fa-check"></i> Document Sharing</li>
+                    </ul>
+                    <a href="external/login.php" class="btn btn-portal">Access Portal</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Our System</h2>
+                    <p>
+                        Our Patient Record Management System is designed to revolutionize healthcare 
+                        documentation and accessibility. Moving away from traditional paper-based systems, 
+                        we provide a secure, digital platform that ensures medical information is always 
+                        available when needed.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Secure & Private</h4>
+                                <p>All medical data is encrypted and protected with industry-standard security measures.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>24/7 Accessibility</h4>
+                                <p>Access medical records anytime, anywhere with our cloud-based system.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-search"></i>
+                            <div>
+                                <h4>Advanced Search</h4>
+                                <p>Quickly find specific medical information using our powerful search functionality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-laptop-medical"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p class="section-subtitle">Comprehensive healthcare management solutions</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>Consultation Management</h3>
+                    <p>Complete consultation records with audio support and detailed documentation.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-procedures"></i>
+                    <h3>Surgery Records</h3>
+                    <p>Comprehensive surgery documentation including complications and allergies.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Diagnosis Tracking</h3>
+                    <p>Detailed diagnosis records with descriptions and treatment plans.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-pills"></i>
+                    <h3>Medicine Management</h3>
+                    <p>Track medicine dosages and monitor patient medication history.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Payment Processing</h3>
+                    <p>Integrated payment system supporting major Ethiopian banks and mobile money.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Hospital Referrals</h3>
+                    <p>Seamless patient referral system between healthcare facilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Goba, Bale Zone, Oromia Region, Ethiopia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+251-XX-XXX-XXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@gobahospital.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Goba Hospital</h3>
+                    <p>Providing quality healthcare with advanced patient record management.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Portals</h4>
+                    <ul>
+                        <li><a href="patient/login.php">Patient Portal</a></li>
+                        <li><a href="doctor/login.php">Doctor Portal</a></li>
+                        <li><a href="staff/login.php">Staff Portal</a></li>
+                        <li><a href="admin/login.php">Admin Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Goba Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
