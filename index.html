@@ -34,7 +34,7 @@
                             <i class="fas fa-sign-in-alt"></i>
                             Login
                         </a>
-                        <a href="#registration-info" class="btn btn-secondary">
+                        <a href="#registration-info" class="btn btn-secondary" onclick="showRegistrationInfo()">
                             <i class="fas fa-info-circle"></i>
                             Registration Info
                         </a>
@@ -98,6 +98,46 @@
             </div>
         </section>
 
+        <section id="registration-info" class="registration-info" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>User Registration Information</h2>
+                    <p>How to get access to the Goba Hospital system</p>
+                </div>
+                <div class="registration-content">
+                    <div class="info-card">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Admin-Only Registration</h3>
+                        <p>For security and compliance reasons, new user accounts can only be created by hospital administrators.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-user-md"></i>
+                        <h3>For Medical Staff</h3>
+                        <p>Doctors and medical staff should contact the IT administrator or hospital management to request account creation.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-users"></i>
+                        <h3>For Patients</h3>
+                        <p>Patient accounts are created during registration at the hospital reception or by medical staff during your visit.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-hospital"></i>
+                        <h3>For External Organizations</h3>
+                        <p>External health offices and partner hospitals should contact Goba Hospital administration for system access.</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>Need an Account?</h3>
+                    <p>Contact Goba Hospital IT Department:</p>
+                    <p><i class="fas fa-phone"></i> +251-22-XXX-XXXX</p>
+                    <p><i class="fas fa-envelope"></i> it@gobahospital.et</p>
+                </div>
+                <button class="btn btn-secondary" onclick="hideRegistrationInfo()">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </div>
+        </section>
+
         <section id="about" class="features">
             <div class="container">
                 <h2>System Features</h2>
@@ -158,5 +198,15 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        function showRegistrationInfo() {
+            document.getElementById('registration-info').style.display = 'block';
+            document.getElementById('registration-info').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function hideRegistrationInfo() {
+            document.getElementById('registration-info').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
