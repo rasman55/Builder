@@ -78,12 +78,42 @@ cd goba-hospital-management
 
 ### Step 2: Database Setup
 
-1. Create a MySQL database:
-```sql
-CREATE DATABASE goba_hospital_db;
+Choose one of the following methods to set up your database:
+
+#### Option A: Automatic Setup (Recommended)
+
+1. Navigate to the database setup page in your browser:
+```
+http://your-server/database/setup.php
 ```
 
-2. Update database configuration in `config/database.php`:
+2. The script will automatically:
+   - Create the database `goba_hospital_db`
+   - Create all required tables with proper relationships
+   - Insert sample data and demo accounts
+   - Display setup confirmation
+
+#### Option B: Manual MySQL Setup
+
+1. Access MySQL command line or phpMyAdmin
+
+2. Execute the complete SQL script:
+```bash
+mysql -u root -p < database/goba_hospital_db.sql
+```
+
+#### Option C: Step-by-Step Manual Setup
+
+1. Create a MySQL database:
+```sql
+CREATE DATABASE goba_hospital_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+2. Import the database structure:
+   - Use the provided `database/goba_hospital_db.sql` file
+   - Or use phpMyAdmin to import the SQL file
+
+3. Update database configuration in `config/database.php` if needed:
 ```php
 define('DB_HOST', 'localhost');
 define('DB_USER', 'your_db_user');
@@ -91,7 +121,15 @@ define('DB_PASS', 'your_db_password');
 define('DB_NAME', 'goba_hospital_db');
 ```
 
-3. The database tables will be automatically created when you first access the system.
+#### Database Features Included:
+
+- **9 Core Tables**: users, patients, doctors, medical_records, medical_files, appointments, user_sessions, audit_logs, system_settings
+- **Advanced Indexing**: Optimized for fast queries and searches
+- **Foreign Key Relationships**: Maintain data integrity
+- **Stored Procedures**: For complex operations like GetPatientHistory()
+- **Database Views**: Pre-built views for common queries
+- **Audit Triggers**: Automatic logging of medical record changes
+- **Sample Data**: Ready-to-use demo accounts and records
 
 ### Step 3: File Permissions
 
@@ -113,14 +151,23 @@ Navigate to your web server URL to access the system.
 
 ## 🔐 Demo Credentials
 
-The system comes with a default admin account:
+The system comes with pre-configured demo accounts for testing all user types:
 
-**Admin Login:**
-- **User Type**: Admin
-- **ID Number**: ADMIN001
-- **Password**: admin123
+| User Type | ID Number | Password | Description |
+|-----------|-----------|----------|-------------|
+| **Admin** | ADMIN001 | admin123 | Full system access, user management |
+| **Doctor** | DOC001 | doctor123 | Dr. Abebe Kebede, Cardiology |
+| **Patient** | PAT001 | patient123 | Almaz Tadesse, Sample patient |
+| **Staff** | STAFF001 | staff123 | Sister Meron Haile, Registered Nurse |
 
-**Note**: Change the default admin password immediately after first login for security.
+### Sample Data Included:
+- Sample medical record (consultation)
+- Patient profile with medical history
+- Doctor profile with specialization
+- Scheduled appointment
+- System configuration settings
+
+**⚠️ Security Note**: Change all default passwords immediately after first login in production environments.
 
 ## 📁 Directory Structure
 
@@ -133,6 +180,9 @@ goba-hospital-management/
 │       └── main.js
 ├── config/
 │   └── database.php
+├── database/
+│   ├── goba_hospital_db.sql
+│   └── setup.php
 ├── includes/
 │   ├── auth.php
 │   ├── records.php
@@ -145,9 +195,9 @@ goba-hospital-management/
 ├── register.php
 ├── patient_dashboard.php
 ├── doctor_dashboard.php
-├── staff_dashboard.php (pending)
-├── admin_dashboard.php (pending)
-├── external_dashboard.php (pending)
+├── staff_dashboard.php
+├── admin_dashboard.php
+├── external_dashboard.php
 └── README.md
 ```
 
