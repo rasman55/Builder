@@ -57,8 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $_SESSION['profile_id'] = $user['user_id'];
                     }
                     
-                    // Redirect to appropriate dashboard
-                    header('Location: ' . $user_type . '/dashboard.php');
+                    // Redirect to appropriate dashboard or specific portal
+                    if (isset($_POST['redirect']) && !empty($_POST['redirect'])) {
+                        header('Location: ' . $_POST['redirect'] . '/dashboard.php');
+                    } else {
+                        header('Location: ' . $user_type . '/dashboard.php');
+                    }
                     exit();
                 } else {
                     $error = 'Invalid username or password.';
@@ -95,6 +99,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <?php echo SITE_NAME; ?>
                         </h4>
                         <p class="text-muted mb-0">Sign in to your account</p>
+                        <?php if (isset($_GET['redirect'])): ?>
+                            <div class="alert alert-info mt-2 mb-0 py-2">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Accessing <?php echo ucfirst($_GET['redirect']); ?> Portal
+                            </div>
+                        <?php endif; ?>
                     </div>
                     <div class="card-body p-4">
                         <?php if ($error): ?>
@@ -105,15 +115,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php endif; ?>
                         
                         <form method="POST" class="needs-validation" novalidate>
+                            <?php if (isset($_GET['redirect'])): ?>
+                                <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_GET['redirect']); ?>">
+                            <?php endif; ?>
                             <div class="mb-3">
                                 <label for="user_type" class="form-label">User Type</label>
                                 <select class="form-select" id="user_type" name="user_type" required>
                                     <option value="">Select user type</option>
-                                    <option value="admin">Administrator</option>
-                                    <option value="doctor">Doctor</option>
-                                    <option value="patient">Patient</option>
-                                    <option value="staff">Medical Staff</option>
-                                    <option value="external">External Health Office</option>
+                                    <option value="admin" <?php echo (isset($_GET['redirect']) && $_GET['redirect'] === 'admin') ? 'selected' : ''; ?>>Administrator</option>
+                                    <option value="doctor" <?php echo (isset($_GET['redirect']) && $_GET['redirect'] === 'doctor') ? 'selected' : ''; ?>>Doctor</option>
+                                    <option value="patient" <?php echo (isset($_GET['redirect']) && $_GET['redirect'] === 'patient') ? 'selected' : ''; ?>>Patient</option>
+                                    <option value="staff" <?php echo (isset($_GET['redirect']) && $_GET['redirect'] === 'staff') ? 'selected' : ''; ?>>Medical Staff</option>
+                                    <option value="external" <?php echo (isset($_GET['redirect']) && $_GET['redirect'] === 'external') ? 'selected' : ''; ?>>External Health Office</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select a user type.
@@ -237,6 +250,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             document.getElementById('user_type').value = userType;
             document.getElementById('username').value = username;
             document.getElementById('password').value = password;
+            
+            // Update the redirect hidden field if it exists
+            const redirectField = document.querySelector('input[name="redirect"]');
+            if (redirectField) {
+                redirectField.value = userType;
+            }
         }
         
         // Form validation
@@ -253,6 +272,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         form.classList.add('was-validated');
                     }, false);
                 });
+                
+                // Auto-focus on username field
+                document.getElementById('username').focus();
+                
+                // Add visual feedback for portal-specific access
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirect = urlParams.get('redirect');
+                if (redirect) {
+                    const userTypeSelect = document.getElementById('user_type');
+                    userTypeSelect.addEventListener('change', function() {
+                        if (this.value === redirect) {
+                            this.classList.add('border-success');
+                            this.classList.remove('border-warning');
+                        } else {
+                            this.classList.add('border-warning');
+                            this.classList.remove('border-success');
+                        }
+                    });
+                }
             }, false);
         })();
     </script>

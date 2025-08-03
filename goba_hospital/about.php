@@ -60,7 +60,9 @@ startSecureSession();
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
+                            <a class="nav-link btn btn-outline-light btn-sm px-3" href="login.php">
+                                <i class="fas fa-sign-in-alt me-1"></i>Login
+                            </a>
                         </li>
                     <?php endif; ?>
                 </ul>

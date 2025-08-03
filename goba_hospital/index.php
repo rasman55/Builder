@@ -60,7 +60,9 @@ startSecureSession();
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
+                            <a class="nav-link btn btn-outline-light btn-sm px-3" href="login.php">
+                                <i class="fas fa-sign-in-alt me-1"></i>Login
+                            </a>
                         </li>
                     <?php endif; ?>
                 </ul>
@@ -123,7 +125,11 @@ startSecureSession();
                                 Manage patient consultations, surgeries, and diagnoses. 
                                 Access comprehensive patient medical histories instantly.
                             </p>
-                            <a href="doctor/dashboard.php" class="btn btn-outline-primary">Doctor Access</a>
+                            <?php if (isLoggedIn() && $_SESSION['user_type'] === 'doctor'): ?>
+                                <a href="doctor/dashboard.php" class="btn btn-outline-primary">Doctor Access</a>
+                            <?php else: ?>
+                                <a href="login.php?redirect=doctor" class="btn btn-outline-primary">Doctor Access</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -139,7 +145,11 @@ startSecureSession();
                                 View your complete medical history, manage appointments, 
                                 and process payments securely.
                             </p>
-                            <a href="patient/dashboard.php" class="btn btn-outline-success">Patient Access</a>
+                            <?php if (isLoggedIn() && $_SESSION['user_type'] === 'patient'): ?>
+                                <a href="patient/dashboard.php" class="btn btn-outline-success">Patient Access</a>
+                            <?php else: ?>
+                                <a href="login.php?redirect=patient" class="btn btn-outline-success">Patient Access</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -155,7 +165,11 @@ startSecureSession();
                                 Record medication dosages, manage patient information, 
                                 and coordinate with medical teams.
                             </p>
-                            <a href="staff/dashboard.php" class="btn btn-outline-info">Staff Access</a>
+                            <?php if (isLoggedIn() && $_SESSION['user_type'] === 'staff'): ?>
+                                <a href="staff/dashboard.php" class="btn btn-outline-info">Staff Access</a>
+                            <?php else: ?>
+                                <a href="login.php?redirect=staff" class="btn btn-outline-info">Staff Access</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -171,7 +185,11 @@ startSecureSession();
                                 Manage users, hospitals, and system configurations. 
                                 Oversee the entire healthcare management system.
                             </p>
-                            <a href="admin/dashboard.php" class="btn btn-outline-warning">Admin Access</a>
+                            <?php if (isLoggedIn() && $_SESSION['user_type'] === 'admin'): ?>
+                                <a href="admin/dashboard.php" class="btn btn-outline-warning">Admin Access</a>
+                            <?php else: ?>
+                                <a href="login.php?redirect=admin" class="btn btn-outline-warning">Admin Access</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -187,7 +205,11 @@ startSecureSession();
                                 Upload and transfer patient information between hospitals. 
                                 Seamless data exchange for better patient care.
                             </p>
-                            <a href="external/dashboard.php" class="btn btn-outline-danger">External Access</a>
+                            <?php if (isLoggedIn() && $_SESSION['user_type'] === 'external'): ?>
+                                <a href="external/dashboard.php" class="btn btn-outline-danger">External Access</a>
+                            <?php else: ?>
+                                <a href="login.php?redirect=external" class="btn btn-outline-danger">External Access</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
